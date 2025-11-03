@@ -1,4 +1,5 @@
-name: CI – React + Vite
+
+name: CI/CD – React + Vite
 
 on:
   push:
@@ -6,43 +7,60 @@ on:
   pull_request:
     branches: [ master ]
 
+permissions:
+  contents: read
+  pages: write     
+  id-token: write 
+
 jobs:
+
   build:
     runs-on: ubuntu-latest
-
+    
     steps:
-      # Faz checkout do código
       - name: Checkout código
         uses: actions/checkout@v4
 
-      # Configura Node.js (versão 18 é segura para Vite)
       - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "20.x"
           cache: "npm"
 
-      # Instala dependências
       - name: Instalar dependências
         run: npm ci
 
-      # Roda o lint pra garantir código limpo
       - name: Rodar ESLint
         run: npm run lint
 
-      # Gera build de produção
+
       - name: Gerar build
         run: npm run build
 
-      # Verifica se o build foi criado com sucesso
-        # (Vite gera a pasta "dist" por padrão)
-      - name: Verificar pasta dist
-        run: |
-          if [ ! -d "./dist" ]; then
-            echo "Build falhou: diretório dist não encontrado"
-            exit 1
-          fi
-      
+      - name: Upload artifact (artefato)
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+
+
+  deploy:
+    needs: build
+    
+    # Condição: SÓ roda o deploy se for um PUSH na branch 'master' - on: push =! do if
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+
+    permissions:
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    runs-on: ubuntu-latest
+    steps:
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
