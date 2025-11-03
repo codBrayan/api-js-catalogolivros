@@ -42,3 +42,7 @@ jobs:
             echo "Build falhou: diretório dist não encontrado"
             exit 1
           fi
+      
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
