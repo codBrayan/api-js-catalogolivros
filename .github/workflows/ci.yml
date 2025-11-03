@@ -2,9 +2,9 @@ name: CI – React + Vite
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
   pull_request:
-    branches: [ main ]
+    branches: [ master ]
 
 jobs:
   build:
@@ -19,7 +19,7 @@ jobs:
       - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: "20.x"
           cache: "npm"
 
       # Instala dependências
@@ -39,6 +39,6 @@ jobs:
       - name: Verificar pasta dist
         run: |
           if [ ! -d "./dist" ]; then
-            echo "❌ Build falhou: diretório dist não encontrado"
+            echo "Build falhou: diretório dist não encontrado"
             exit 1
           fi
