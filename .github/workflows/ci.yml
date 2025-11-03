@@ -1,0 +1,44 @@
+name: CI – React + Vite
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Faz checkout do código
+      - name: Checkout código
+        uses: actions/checkout@v4
+
+      # Configura Node.js (versão 18 é segura para Vite)
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20.x"
+          cache: "npm"
+
+      # Instala dependências
+      - name: Instalar dependências
+        run: npm ci
+
+      # Roda o lint pra garantir código limpo
+      - name: Rodar ESLint
+        run: npm run lint
+
+      # Gera build de produção
+      - name: Gerar build
+        run: npm run build
+
+      # Verifica se o build foi criado com sucesso
+        # (Vite gera a pasta "dist" por padrão)
+      - name: Verificar pasta dist
+        run: |
+          if [ ! -d "./dist" ]; then
+            echo "Build falhou: diretório dist não encontrado"
+            exit 1
+          fi
