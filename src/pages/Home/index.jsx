@@ -15,7 +15,7 @@ function Home() {
         const data = await getBooks();
         setBooks(data);
       } catch (error) {
-        console.error("Erro ao carregar livros:", error);
+        console.error('Erro ao carregar livros:', error);
       }
     }
     loadBooks();
