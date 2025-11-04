@@ -23,6 +23,14 @@ export default defineConfig([
       },
     },
     rules: {
+
+      // 1. Padroniza o uso de aspas duplas ("")
+      'quotes': ['error', 'single'],
+
+      // 2. Proíbe o uso de console.log mas permite console.warn e console.error
+      'no-console': ['error', { 'allow': ['warn', 'error'] }],
+
+      // --- SUA REGRA EXISTENTE ---
       'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
     },
   },
