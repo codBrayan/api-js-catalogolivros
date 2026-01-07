@@ -1,5 +1,5 @@
 # api-js-catalogolivros
-
+Projeto feito para faculdade
 Uma aplicação front-end em JavaScript/React para exibir um catálogo de livros. O projeto está organizado com componentes reutilizáveis, páginas (views) e serviços para comunicação com uma API backend.
 
 ## Visão geral
@@ -24,9 +24,3 @@ Uma aplicação front-end em JavaScript/React para exibir um catálogo de livros
 - Git Actions
 - ESLint
 
-
-Adicione uma licença ao repositório (ex.: MIT) se desejar permitir uso público.
-
-## Contato
-
-Para dúvidas ou colaboração: abra uma issue no repositório ou entre em contato com o mantenedor.
