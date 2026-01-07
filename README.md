@@ -1,5 +1,6 @@
 # api-js-catalogolivros
 Projeto feito para faculdade
+
 Uma aplicação front-end em JavaScript/React para exibir um catálogo de livros. O projeto está organizado com componentes reutilizáveis, páginas (views) e serviços para comunicação com uma API backend.
 
 ## Visão geral
