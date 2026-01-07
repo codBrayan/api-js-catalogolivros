@@ -1,16 +1,32 @@
-# React + Vite
+# api-js-catalogolivros
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Uma aplicação front-end em JavaScript/React para exibir um catálogo de livros. O projeto está organizado com componentes reutilizáveis, páginas (views) e serviços para comunicação com uma API backend.
 
-Currently, two official plugins are available:
+## Visão geral
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Tipo: Aplicação React (arquivos .jsx)
+- Propósito: Interface para um catálogo de livros — listar livros, ver detalhes e possivelmente criar/editar/excluir registros consumindo uma API.
+- Organização: separação entre `components`, `pages`, `services` e `assets`.
 
-## React Compiler
+## Recursos principais
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Listagem de livros
+- Página de detalhes do livro
+- Integração com API via camada `services`
+- Estrutura modular de componentes e páginas
 
-## Expanding the ESLint configuration
+## Tecnologias
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- JavaScript (ESNext)
+- React (JSX)
+- Vite
+- CSS 
+- Git Actions
+- ESLint
+
+
+Adicione uma licença ao repositório (ex.: MIT) se desejar permitir uso público.
+
+## Contato
+
+Para dúvidas ou colaboração: abra uma issue no repositório ou entre em contato com o mantenedor.
